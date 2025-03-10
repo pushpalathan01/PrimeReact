@@ -1,15 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-        './index.html',
-        './src/**/*.{vue,js,ts,jsx,tsx}',
-        './node_modules/primereact/**/*.{js,ts,jsx,tsx}',
-      ], // Ensure Tailwind scans your components
-    theme: {
-      extend: {},
-    },
-    plugins: [],
-  };
+  darkMode: "class",
+  content:  [
+    './index.html',
+    "./src/**/*.{js,jsx,ts,tsx}",
+    './node_modules/primereact/**/*.{js,ts,jsx,tsx}',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+
+
   
 //   The tailwind.config.js file is the configuration file for Tailwind CSS. It allows you to customize Tailwind's default settings based on your project needs.
 // why tailwnd css

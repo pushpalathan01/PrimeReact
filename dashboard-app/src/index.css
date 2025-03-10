@@ -1,5 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* This enables Tailwind's pre-built styles. */
+@layer tailwind-base {
+    @tailwind base;
+  }
+  
+  @layer primereact {
+    /* Import PrimeReact styles here if needed */
+  }
+  
+  @layer tailwind-utilities {
+    @tailwind components;
+    @tailwind utilities;
+  }
+  

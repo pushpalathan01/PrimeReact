@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 const ThemeSwitcher = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
 
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    document.documentElement.classList.toggle("dark");
-  };
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkMode]);
 
   return (
-    <button 
-      onClick={toggleTheme} 
-      className="p-2 border rounded bg-gray-200 dark:bg-gray-800"
+    <button
+      onClick={() => setDarkMode(!darkMode)}
+      className="p-2  focus:outline-none"
+      aria-label="Toggle Theme"
     >
-      {darkMode ? "Light Mode" : "Dark Mode"}
+      {darkMode ? <MdLightMode size={22} /> : <MdDarkMode size={22} />}
     </button>
   );
 };
